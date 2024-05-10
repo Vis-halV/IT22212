@@ -1,4 +1,4 @@
-/* EXPT-03 (A)
+/* EXPT-03 ( A )
 
 QUESTION:
 
@@ -50,3 +50,59 @@ int main()
   return 0;
 }
 
+
+
+/* EXPT-03 ( B )
+
+QUSTION:
+  
+Define a class "BankAccount" with private data members for account balance and account holder name. Create a friend class "BankManager" that can access and modify the balance of any bank account.
+
+AIM:
+  
+To implement the above condition using Friend Class in C++
+
+ALGORITHM:
+
+Step 1: Start
+Step 2: Define a class bankaccount with private members accbal and name. Initialize accbal to 0 and name to "Yugan".
+Step 3: Declare bankmanager as a friend class of bankaccount.
+Step 4: Define a class bankmanager with a public method changebal.
+Step 5: In the changebal method, ask the user to enter a new balance, add it to the accbal of the passed bankaccount object, and print the name and updated accbal of the bankaccount object.
+Step 6: In the main function, create an object b of the bankaccount class and an object m of the bankmanager class.
+Step 7: Call the changebal method on m with b as the argument to change the balance of b and print its details.
+Step 8: End*/
+
+
+#include <iostream> 
+using namespace std; 
+
+class bankaccount
+{
+ float accbal=0;
+ string name="Ramki";
+
+public:
+ friend class bankmanager;
+};
+
+class bankmanager
+{
+ public:
+  void changebal(bankaccount& b1)
+   {
+    float bal;
+     cout<<"Enter the new balance: "; cin>>bal; 
+     b1.accbal=b1.accbal+bal;
+     cout<<"Account Holder:"<<b1.name<<endl; 
+     cout<<"Account Balance:"<<b1.accbal<<endl;
+   }
+};
+
+int main()
+{
+  bankaccount b; 
+  bankmanager m; 
+  m.changebal(b); 
+  return 0;
+}
