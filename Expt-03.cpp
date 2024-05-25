@@ -33,10 +33,10 @@ class complex
    cout << "Enter the real and imaginary part of 2nd complex number: "; 
    cin >> real[1] >> imag[1];
   }
-  friend void add(complex& c1);
+  friend void add(complex & c1);
 };
 
-void add(complex& c1){ 
+void add(complex & c1){ 
   c1.real[2]=c1.real[0]+c1.real[1];
   c1.imag[2]=c1.imag[0]+c1.imag[1];
   cout << "The sum of the complex numbers is: " << c1.real[2] << " + " << c1.imag[2] << "i" << endl;
