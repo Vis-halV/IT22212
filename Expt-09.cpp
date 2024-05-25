@@ -104,3 +104,63 @@ cerr << "Error: " << ex.what() << endl;
 }
 return 0;
 }
+
+
+
+
+
+
+/*QUESTION( B ):
+Implementation of List using Standard Template Library using C+
+AIM:
+To implement of list using standard template library using c++.
+ALGORITHM:
+1. Start the program and create an instance of a list, named `myList`.
+2. Use the `push_back` method to add the integer 2 to the end of `myList`.
+3. Use the `push_front` method to add the integer 3 to the beginning of `
+myList`.
+4. Print the string "List elements: " to the console to indicate that the list
+elements will be printed next.
+5. Begin a for loop to iterate over each element in `myList`. The loop variable
+`num` takes on the value of each element in turn.
+6. Inside the loop, print the value of `num` followed by a space. This prints
+each element of the list to the console.
+7. After the loop, print a newline character to the console to end the line of
+output.
+8. Use the `pop_back` method to remove the last element from `myList`.
+9. Print the string "Updated list elements: " to the console to indicate that the
+updated list elements will be printed next.
+10. Begin another for loop to iterate over each element in the updated `myList
+`. The loop variable `num` takes on the value of each element in turn.
+11. Inside the loop, print the value of `num` followed by a space. This prints
+each element of the updated list to the console. After the loop, print a newline
+character to the console to end the line of output, and end the program with a
+return value of 0*/
+
+
+
+
+#include <iostream>
+#include <list>
+Using namespace std;
+int main()
+{
+list<int> myList;
+myList.push_back(1);
+myList.push_back(2);
+myList.push_front(3);
+cout << "List elements: ";
+for (int num : myList)
+{
+cout << num << " ";
+}
+cout << endl;
+myList.pop_back();
+cout << "Updated list elements: ";
+for (int num : myList)
+{
+cout << num << " ";
+}
+cout << endl;
+return 0;
+}
