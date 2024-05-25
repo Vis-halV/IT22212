@@ -190,7 +190,7 @@ void display1(){
 
 class PassengerPreferences
 {
-stringPass_Pre; 
+string Pass_Pre; 
 public:
 PassengerPreferences(){
   cout<<"EnteryourPreferencesonanySubject:"; 
@@ -202,9 +202,9 @@ void display2(){
 }
 };
 
-class OneWayTicket:publicTicket,PaymentMethod,PassengerPreferences
+class OneWayTicket:public Ticket,PaymentMethod,PassengerPreferences
 {
-intSeat_No; 
+int Seat_No; 
 public: 
 
 OneWayTicket(){
@@ -222,14 +222,14 @@ OneWayTicket(){
 }
 
 void displaya(){
-  display(); 
+  void  display(); 
   cout<<"SeatNumber:"<<Seat_No;
 }
 };
  
 
 
-class RoundTripTicket:publicTicket,PaymentMethod,PassengerPreferences
+class RoundTripTicket:public Ticket,PaymentMethod,PassengerPreferences
 {
 int Seat_No1,Seat_No2; 
 public:
@@ -255,12 +255,12 @@ RoundTripTicket(){
 
 void displayb(){
 
-display(); 
+void display(); 
   cout<<"\nfrom"<<Seat_No1<<"\nto"<<Seat_No2<<endl;
 }
 };
 
-class SleeperTicket:publicTicket,PaymentMethod,PassengerPreferences
+class SleeperTicket:public Ticket,PaymentMethod,PassengerPreferences
 
 {
 int Seat_No; 
@@ -280,12 +280,12 @@ SleeperTicket(){
 }
 
 void displayc(){
-display(); 
+void display(); 
   cout<<"SeatNumber:"<<Seat_No;
 }
 };
 
-class SeatedTicket:publicTicket,PaymentMethod,PassengerPreferences
+class SeatedTicket:public Ticket,PaymentMethod,PassengerPreferences
 {
 int Seat_No; 
 
@@ -305,14 +305,14 @@ SeatedTicket(){
 }
 
 void displayd(){
-  display(); 
+  void display(); 
   cout<<"SeatNumber:"<<Seat_No<<endl;
 }
 };
 
-class DiscountedTicket:publicTicket,PaymentMethod,PassengerPreferences
+class DiscountedTicket:public Ticket,PaymentMethod,PassengerPreferences
 {
-intSeat_No; 
+int Seat_No; 
 
 public:
  
@@ -331,7 +331,7 @@ DiscountedTicket(){
 }
 
 void displaye(){
-  display();
+ void  display();
   cout<<"SeatNumber:"<<Seat_No<<endl;
 }
 };
@@ -339,26 +339,26 @@ void displaye(){
 int main()
 {
 int n;
-cout<<"Enter	\n1-OneWayTicket\n2-RoundTripTicket\n3-SleeperTicket\n4- Seater Ticket\n5-DiscountedTicket";
+cout<<"Enter	\n1-OneWayTicket\n2-RoundTripTicket\n3-SleeperTicket\n4- Seater Ticket\n5-DiscountedTicket\n";
 cin>>n; 
   if(n==1){
-    OneWayTicketo; 
+    OneWayTicket o; 
     o.displaya();
   }
   else if(n==2){
-    RoundTripTickett; 
+    RoundTripTicket t; 
     t.displayb();
   }
   else if(n==3){
-    SleeperTickets; 
+    SleeperTicket s; 
     s.displayc();
   }
   else if(n==4){
-    SeatedTickets1; 
+    SeatedTicket s1; 
     s1.displayd();
   }
   else{
-    DiscountedTicketd; 
+    DiscountedTicket d; 
     d.displaye();
   }
 }
