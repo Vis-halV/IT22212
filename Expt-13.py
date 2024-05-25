@@ -15,41 +15,52 @@ the core function.
 Step 6. Return the wrapper function from the decorator.
 Step 7. Use the @decorator_name syntax to apply the decorator to the core 
 function.
-Step 8. Stop the program"""
-
-
+Step 8. Stop the program"""
 
 class Coffee: 
-def cost(self):
-pass
-def ingredients(self): 
-pass
+    def cost(self):
+        pass
+
+    def ingredients(self): 
+        pass
+
 class SimpleCoffee(Coffee): 
-def cost(self):
-return 1.0
-def ingredients(self): 
-return "Coffee"
+    def cost(self):
+        return 1.0
+
+    def ingredients(self): 
+        return "Coffee"
+
 class CoffeeDecorator(Coffee): 
-def init (self, coffee): 
-self._coffee = coffee
-def cost(self):
-return self._coffee.cost() 
-def ingredients(self):
-return self._coffee.ingredients() 
+    def __init__(self, coffee): 
+        self._coffee = coffee
+
+    def cost(self):
+        return self._coffee.cost() 
+
+    def ingredients(self):
+        return self._coffee.ingredients() 
+
 class Milk(CoffeeDecorator):
-def init (self, coffee): 
-super(). init (coffee)
-def cost(self):
-return super().cost() + 0.5 
-def ingredients(self):
-return super().ingredients() + ", Milk" 
+    def __init__(self, coffee): 
+        super().__init__(coffee)
+
+    def cost(self):
+        return super().cost() + 0.5 
+
+    def ingredients(self):
+        return super().ingredients() + ", Milk" 
+
 class Sugar(CoffeeDecorator):
-def init (self, coffee): 
-super(). init (coffee)
-def cost(self):
-return super().cost() + 0.25
-def ingredients(self):
-return super().ingredients() + ", Sugar" 
+    def __init__(self, coffee): 
+        super().__init__(coffee)
+
+    def cost(self):
+        return super().cost() + 0.25
+
+    def ingredients(self):
+        return super().ingredients() + ", Sugar" 
+
 coffee = SimpleCoffee()
 print(f"Cost: {coffee.cost()}, Ingredients: {coffee.ingredients()}") 
 coffee = Milk(coffee)
