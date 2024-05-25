@@ -122,3 +122,123 @@ cerr << "Error: " << ex.what() << endl;
 }
 return 0;
 }
+
+
+
+
+
+/*QUESTION( C ):
+Implementation of Exception Handling Mechanism using C++ ,
+Design Stack class using array with necessary exception handling
+AIM:
+To implement a c++ program to desgn stack class using array with necessary
+exception handling.
+ALGORITHM:
+1. Start the program and include the necessary libraries: `iostream` for input/output
+operations and `stdexcept` for standard exceptions.
+2. Use the `std` namespace to avoid having to prefix `std::` before every standard
+library object.
+3. Define a custom exception class `StackUnderflowException` that inherits from the
+standard `exception` class.
+4. Inside the `StackUnderflowException` class, override the `what()` method to
+return the string "Stack underflow".
+5. Define another custom exception class `StackOverflowException` that also
+inherits from the standard `exception` class.
+6. Inside the `StackOverflowException` class, override the `what()` method to return
+the string "Stack overflow".
+7. Define a template class `Stack` that takes two parameters: a type `T` and an integer
+`SIZE`.
+8. Inside the `Stack` class, declare private member variables. These will likely
+include an array or other data structure to hold the stack elements, and possibly an
+integer to keep track of the current size of the stack.
+9. Define public methods for the `Stack` class. These will likely include methods like
+`push` to add an element to the top of the stack, `pop` to remove the top element, and
+`top` to access the top element without removing it.
+10. In the `push` and `pop` methods, check for stack overflow and underflow
+conditions respectively. If these conditions are met, throw the appropriate exceptions.
+11. In the `main` function or other parts of the program, create a `Stack` object and
+use its methods to perform stack operations, handling any `StackUnderflowException
+` or `StackOverflowException` that might be thrown.*/
+
+
+#include <iostream>
+#include <stdexcept>
+Using namespace std;
+class StackUnderflowException : public exception
+{
+public:
+const char* what() const noexcept override
+{
+return "Stack underflow";
+}
+class StackOverflowException : public exception
+{
+public:
+const char* what() const noexcept override
+{
+return "Stack overflow";
+}
+};
+template<typename T, int SIZE> 
+class Stack
+{
+private:
+T elements[SIZE];
+int top;
+public:
+Stack() : top(-1) {}
+void push(const T& element)
+{
+if (top == SIZE - 1)
+{
+throw StackOverflowException();
+}
+elements[++top] = element;
+}
+T pop() {
+if (top == -1)
+{
+throw StackUnderflowException();
+}
+return elements[top--];
+}
+T peek() const
+{
+if (top == -1)
+{
+throw StackUnderflowException();
+}
+return elements[top];
+}
+bool isEmpty() const
+{
+return top == -1;
+}
+bool isFull() const
+{
+return top == SIZE - 1;
+}
+};
+int main()
+{
+Stack<int, 5> intStack;
+try
+{
+intStack.push(10);
+intStack.push(20);
+intStack.push(30);
+cout << "Popped element: " << intStack.pop() << endl;
+cout << "Popped element: " << intStack.pop() << endl;
+cout << "Popped element: " << intStack.pop() << endl;
+cout << "Popped element: " << intStack.pop() << endl;
+}
+catch (const StackUnderflowException& ex)
+{
+cerr << "Error: " << ex.what() << endl;
+}
+catch (const StackOverflowException& ex)
+{
+cerr << "Error: " << ex.what() << endl;
+}
+return 0;
+}
