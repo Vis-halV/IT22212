@@ -17,7 +17,7 @@ what()` method.
 8. End the catch block.
 9. After the try-catch block, perform any necessary cleanup operations.
 10. Return 0 to indicate that the program has finished successfully.
-11. End the program*/
+11. End the program. */
 
 
 #include <iostream>
