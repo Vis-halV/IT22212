@@ -40,3 +40,12 @@ cout << "Enter divisor: ";
 cin >> divisor;
 try
 {
+double result = divide(dividend, divisor);
+cout << "Result of division: " << result << endl;
+}
+catch (const runtime_error& ex)
+{
+cerr << "Error: " << ex.what() << endl;
+}
+return 0;
+}
