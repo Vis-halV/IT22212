@@ -89,7 +89,7 @@ public:
 class bankmanager
 {
  public:
-  void changebal(bankaccount& b1)
+  void changebal(bankaccount & b1)
    {
     float bal;
      cout<<"Enter the new balance: "; cin>>bal; 
