@@ -24,98 +24,88 @@ Step12:Call sort arr function for integers and floats, Call the sort arr functio
 Step13:Stop the program.*/
 
 
-
-#include <iostream> 
-#include <cstring> 
+#include <iostream>
+#include <cstring>
 using namespace std;
 
-template<typenameT> 
-void sort(T a[], int n){
-  T t; 
-  inti,j;
-  for(i = 0; i <n -1;i++) {
-    for (j=0;j<n-i - 1;j++) {
-      if(a[j]>a[j+1])
-      {
-        t=a[j]; 
-        a[j]=a[j+1]; 
-        a[j+1] = t;
-      }
+template<typename T>
+void sort(T a[], int n) {
+    T t;
+    int i, j;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                t = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = t;
+            }
+        }
     }
-  }
 }
- 
-
 
 template<>
-
-void sort(char a[][100],int n) {
-  
-char t[100]; 
-int i, j;
-  for(i = 0; i <n -1;i++) {
-    for (j=0;j<n-i - 1;j++) {
-      if(strcmp(a[j],a[j+1])>0) {
-        strcpy(t,a[j]);
-        strcpy(a[j],a[j+1]);
-        strcpy(a[j+1],t);
-      }
+void sort(char a[][100], int n) {
+    char t[100];
+    int i, j;
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            if (strcmp(a[j], a[j + 1]) > 0) {
+                strcpy(t, a[j]);
+                strcpy(a[j], a[j + 1]);
+                strcpy(a[j + 1], t);
+            }
+        }
     }
-  }
 }
 
-int main()
-{
-  int n,i;
-  cout<<"Enter\n1-Int\n2-Float\n3-char\n"; 
-  cin>> n;
-  switch(n)
-  {
-    case 1:
-      intn1; 
-      inta[100];
-      cout<<"EnterNValue:";
-      cin>>n1;
-      for(i = 0;i<n1;i++){
-        cin>>a[i];
-      }
-      sort<int>(a,n1); 
-      cout<<"AfterSorting:";
-      for (i = 0; i < n1; i++){
-        cout<<a[i];
-      }
-      break;
-    case 2:
-      int n2;
-      float b[100]; 
-      cout<<"EnterNValue:"; 
-      cin>> n2;
-      for(i = 0;i<n2;i++){
-        cin>>b[i];
-      }
-      sort<float>(b,n2); 
-      cout<<"AfterSorting:\n"; 
-      for (i = 0; i < n2; i++)
-      {
-        cout << b[i]; cout<<"\n";
-      }
-      break; 
-    case 3:
-      int n3;
-      char c[100][100];
-      cout<<"EnterNValue:"; 
-      cin>> n3;
-      for(i = 0;i<n3;i++){
-        cin>>c[i];
-      }
-      sort(c,n3); 
-      cout<<"AfterSorting:\n"; 
-      for (i = 0; i < n3; i++)
-      {
-        cout << c[i]; 
-        cout<<"\n";
-      }
-      break;
-  }
-  return0;
+int main() {
+    int n, i;
+    cout << "Enter\n1-Int\n2-Float\n3-char\n";
+    cin >> n;
+    switch (n) {
+        case 1:
+            int n1;
+            int a[100];
+            cout << "EnterNValue:";
+            cin >> n1;
+            for (i = 0; i < n1; i++) {
+                cin >> a[i];
+            }
+            sort(a, n1);
+            cout << "AfterSorting:";
+            for (i = 0; i < n1; i++) {
+                cout << a[i] << " ";
+            }
+            break;
+        case 2:
+            int n2;
+            float b[100];
+            cout << "EnterNValue:";
+            cin >> n2;
+            for (i = 0; i < n2; i++) {
+                cin >> b[i];
+            }
+            sort(b, n2);
+            cout << "AfterSorting:\n";
+            for (i = 0; i < n2; i++) {
+                cout << b[i] << " ";
+            }
+            break;
+        case 3:
+            int n3;
+            char c[100][100];
+            cout << "EnterNValue:";
+            cin >> n3;
+            for (i = 0; i < n3; i++) {
+                cin >> c[i];
+            }
+            sort(c, n3);
+            cout << "AfterSorting:\n";
+            for (i = 0; i < n3; i++) {
+                cout << c[i] << " ";
+            }
+            break;
+    }
+    return 0;
 }
+
