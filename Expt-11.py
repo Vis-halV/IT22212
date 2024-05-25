@@ -14,24 +14,30 @@ arguments 20 and 5.
 Step 4. The print statements in child and child1 are executed as part of the
 class definitions, displaying the results of the method calls.
 Step 5. The program ends after defining the classes and executing the print
-statements."""
+statements."""
 
 
 
+class Base:
+    def __init__(self):
+        pass
+
+    def add(x, y):
+        return (x + y)
 
 
-class base:
-def init (self):
-pass
-def add(x,y):
-return (x+y)
-class base1:
-def init (self):
-pass
-def mult(x,y):
-return (x+y)
-class child(base):
-print('This is the example of basic inheritance\n10 + 5 = ',base.add(10,5))
-class child1(base,base1):
-print('Example of mutiple inheritance\n20 + 5 =',base.add(20,5),'\n20 * 5 =
-',base1.mult(20,5))
+class Base1:
+    def __init__(self):
+        pass
+
+    def mult(x, y):
+        return (x * y)
+
+
+class Child(Base):
+    print('This is an example of basic inheritance\n10 + 5 =', Base.add(10, 5))
+
+
+class Child1(Base, Base1):
+    print('Example of multiple inheritance\n20 + 5 =', Base.add(20, 5))
+    print('20 * 5 =', Base1.mult(20, 5))
