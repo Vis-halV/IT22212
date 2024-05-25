@@ -28,11 +28,11 @@ int Height,Weight;
 public:
 Patient()
 {
-  cout<<"EnterName:"; 
+  cout<<"Enter Name:"; 
   cin >> Name; 
-  cout<<"EnterHeight:"; 
+  cout<<"Enter Height:"; 
   cin >> Height; 
-  cout<<"EnterWeight:"; 
+  cout<<"Enter Weight:"; 
   cin >> Weight;
 }
 
@@ -42,7 +42,7 @@ void display()
 }
 };
 
-class InPatient:publicPatient
+class InPatient:public Patient
 {
 private:
 string InDate,InTime,Reason; 
@@ -59,12 +59,12 @@ InPatient()
 
 void disp()
 {
- display();  
+ void display();  
  cout<<"\nInDate:"<<InDate<<"\nInTime:"<<InTime<<"\nReason: "<< Reason<<"\n";
 }
 };
 
-class OutPatient:publicPatient
+class OutPatient:public Patient
 {
 private:
 string OutDate,OutTime,Rec; 
@@ -79,12 +79,12 @@ OutPatient(){
 }
 
 void show(){
-  display(); 
+  void display(); 
   cout<<"\nOutDate:"<<OutDate<<"\nOutTime:"<<OutTime<<"\nRecovered : "<< Rec <<"\n";
 }
 };
 
-class EmergencyPatient:publicPatient
+class EmergencyPatient:public Patient
 {
 private:
 string Severity_Level,Reason; 
@@ -96,7 +96,7 @@ EmergencyPatient(){
   cin >> Severity_Level;
 }
 void print(){
-  display();
+  void display();
   cout << "\nReason:" << Reason << "\nSeverity Level High/Medium/Low: "<< Severity_Level;
 }
 };
@@ -105,17 +105,19 @@ void print(){
 int main()
 {
   int n;
-  cout<<"Enter\n1-InPatient\n2-OutPatient\n3-EmergencyPatient"; 
+  cout<<"Enter\n1-InPatient\n2-OutPatient\n3-EmergencyPatient\n"; 
   cin >> n;
   if(n==1){
     InPatient x; x.disp();
   } 
   else if(n == 2){
-    OutPatienty; y.show();
+    OutPatient y; 
+    y.show();
   }
   else if(n == 3)
   {
-    EmergencyPatientz; z.print();
+    EmergencyPatient z; 
+    z.print();
   }
 }
 
